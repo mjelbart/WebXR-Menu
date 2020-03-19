@@ -1,12 +1,17 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+    
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    
   
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
-  <script src="https://rawgit.com/wmurphyrd/aframe-super-hands-component/master/dist/super-hands.js"></script>
   
-  
-  <title>Tetst</title>
+  <title>Test</title>
 
   </head> 
   <body>
@@ -14,25 +19,31 @@
     <a-assets>
       </a-assets>     
         
-         <a-box id="ceiling"
-             material="color:whitesmoke"
-             position="2.60941 2.5 3.89619"
-             width="5.1"
-             height="0.1"
-             depth="8"
-             ></a-box> 
+
       
       <a-entity id="outside_trees_grass" 
-                position="10 -2 0" 
+                position="0 0 0" 
                 environment="preset: forest;"></a-entity>
       
-      <a-entity>
+      <a-entity id="rig">
       <a-camera></a-camera>
-      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="left"></a-entity>
-      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="right"></a-entity>
+        
+        <a-entity sphere-collider="objects: .grabbable" 
+                  super-hands
+                  hand-controls="right"
+                  ></a-entity>
+        
+        <a-entity sphere-collider="objects: .grabbable" 
+                  super-hands
+                  hand-controls="left"
+                  ></a-entity>
     </a-entity>
+      
+      
     <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
-    <a-box hoverable grabbable stretchable draggable dropppable color="blue" position="0 0 -1"></a-box>
+    <a-box color="blue" position="0 0 -1"
+           grabbable
+           class="grabbable"></a-box>
       
     </a-scene>
     
